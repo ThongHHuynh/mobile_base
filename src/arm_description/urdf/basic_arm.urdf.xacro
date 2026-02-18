@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="my_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <link
+        name="base_link">
+        <inertial>
+            <origin
+            xyz="0.00111653247184856 -2.47856588019062E-05 0.0350775423216737"
+            rpy="0 0 0" />
+            <mass
+            value="0.214013778998518" />
+            <inertia
+            ixx="0.00014506059481398"
+            ixy="-2.37847055524982E-12"
+            ixz="1.27478119861964E-06"
+            iyy="0.000147449505353298"
+            iyz="-2.76699702605575E-14"
+            izz="0.000223767943326789" />
+        </inertial>
+        <visual>
+            <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.6" radius="0.2"/>
+            </geometry>
+            <material
+            name="">
+            <color
+                rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.6" radius="0.2"/>
+            </geometry>
+        </collision>
+    </link>
+</robot>
