@@ -1,6 +1,6 @@
 from launch import LaunchDescription
 from launch_ros.parameter_descriptions import ParameterValue
-from launch_ros.actions import Node
+from launch_ros.actions import Node, LaunchDescription
 from launch.substitutions import Command
 import os
 from ament_index_python.packages import get_package_share_path
@@ -10,7 +10,7 @@ def serial_available(path ="/dev/ttyUSB0"):
 
 def generate_launch_description():
     port = "/dev/ttyUSB0"
-    use_mock = not serial_available()
+    use_mock = not serial_available(port)
 
     robot_description_path = get_package_share_path('my_robot_description')
     robot_bringup_path = get_package_share_path('my_robot_bringup')

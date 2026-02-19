@@ -11,10 +11,10 @@
                 <param name="port">${serial_port}</param>
                 <param name="baud">${baud}</param>
                 <param name="timeout_ms">20</param>
-                <param name="counts_per_rev">1440</param>
+                <param name="counts_per_rev">225</param>
                 <param name="invert_left">false</param>
                 <param name="invert_right">false</param>
-                <param name="max_rad_s">20.0</param>
+                <param name="max_rad_s">6.0</param>
             </hardware>
             </xacro:unless>
 
