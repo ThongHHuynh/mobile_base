@@ -21,6 +21,7 @@ def generate_launch_description():
     urdf_path = os.path.join(robot_description_path, 'urdf', 'my_robot.urdf.xacro')
     rviz_config_path = os.path.join(robot_description_path, 'rviz', 'urdf_config.rviz')
     controller_path = os.path.join(robot_bringup_path, 'config', 'my_robot_controller.yaml')
+    gazebo_config_path = os.path.join(robot_bringup_path, 'config', 'gazebo_bridge.yaml')
 
     robot_description = ParameterValue(Command(['xacro ', urdf_path,' ',
                                                 'use_mock_hardware:=', 'true' if use_mock else 'false', ' ',
@@ -79,17 +80,22 @@ def generate_launch_description():
         executable="create",
         arguments=[
             "-name",
-            "groundhog",
+            "my_robot",
             "-topic",
             "/robot_description",
             "-x",
             "0",
             "-y",
             "0",
-        "-z",
+            "-z",
             "0.25",
         ],
         output="screen",
+    )
+    ros_gz_bridge = Node(
+        package="ros_gz_bridge",
+        executable="parameter_bridge",
+        parameters=[{'config_file': gazebo_config_path}]
     )
 
 
@@ -104,5 +110,6 @@ def generate_launch_description():
     ld.add_action(rviz2_node)
     ld.add_action(gz_sim)
     ld.add_action(spawn_entity)
+    ld.add_action(ros_gz_bridge)
 
     return ld

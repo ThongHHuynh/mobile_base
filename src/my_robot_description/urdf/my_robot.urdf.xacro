@@ -9,6 +9,7 @@
     <!-- <xacro:include filename="mobile_base.xacro" /> -->
     <xacro:include filename="mobile_base.urdf.xacro" />
     <xacro:include filename="mobile_base.ros2_control.xacro"/>
+    <xacro:include filename="mobile_base.gazebo.xacro"/>
     <xacro:mobile_base_ros2_control
         use_mock_hardware="$(arg use_mock_hardware)"
         serial_port="$(arg serial_port)"
